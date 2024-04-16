@@ -8,12 +8,19 @@ public class StringTrimmer {
      */
     static public String trimString(String str, int removesLeft) {
         // 1. If there are no removes left
-            
+            if(removesLeft==0) {
+            	return str;
+            	}
             // 2. Return the string
 
         // 3. Else you need to remove the last letter from the string,
         //    reduce removesLeft by 1, and then call trimString() 
-
-        return null;
+            else {
+            	StringBuilder streb = new StringBuilder(str);
+            	str = streb.delete(str.length()-1, str.length()).toString();
+            	System.out.println(str);
+            	return trimString(str, removesLeft-1);
+            }
+        
     }
 }
